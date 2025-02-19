@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieTales Registry</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #161514;
+            text-align: center;
+        }
+        h1 {
+            background-color: gold;
+            padding: 10px;
+            color: white;
+        }
+
+    details {
+        background-color: gold;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 20px;
+        width: 60%;
+        margin: 20px auto;
+        padding: 5px;
+    }
+
+        }
+        .btn-danger {
+            border: none;
+            padding: 10px;
+            width: 150px;
+        }
+        .ticket-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .ticket-img {
+            width: 50%;
+            display: block;
+            margin: auto;
+        }
+        .print-btn {
+            background-color: orange;
+            color: white;
+            padding: 8px;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cinema Tickets</h1>
+
+    <details ontoggle="message()">
+        <summary>Personal Information</summary>
+        <i>Fill out the form below</i>
+        <form>
+            <label>Complete Name</label><br>
+            <input type="text" id="text" class="form-control" placeholder="Full Name"><br>
+
+            <label>Email</label><br>
+            <input type="email" id="email" class="form-control" placeholder="@gmail.com"><br>
+
+            <button type="button" class="btn btn-danger" onclick="submitForm()" required>SUBMIT INFO</button>
+        </form>
+    </details>
+
+    <details>
+        <summary>Ticket Price</summary>
+        <i>Check your ticket price.</i>
+        <form>
+            <label>Pick a seat:</label>
+            <select class="form-control" id="pop">
+                <option value="none">Select</option>
+                <option value="2">VIP</option>
+                <option value="1">Regular</option>
+                <option value="2">Balcony</option>
+            </select><br>
+
+            <form>
+                <label>Available discounts:</label>
+                <select class="form-control" id="disc">
+                    <option value="none">Select</option>
+                    <option value="0">Adult</option>
+                    <option value="0.2">Student</option>
+                    <option value="0.4">PWD</option>
+                </select><br>
+
+                <button type="button" class="btn btn-danger" onclick="TKprice()">TICKET PRICE</button>
+            </form>
+        </details>
+
+        <details>
+            <summary>Print Ticket</summary>
+            <div class="ticket-container">
+                <img src="ticket.png" class="ticket-img" alt="Cinema Ticket">
+                <br>
+                <button class="print-btn" onclick="print()">PRINT TICKET</button>
+            </div>
+        </details>
+    </div>
+    <script>
+        function message() {
+            alert("Forms");
+        }
+
+        function submitForm() {
+            alert("Successfully submitted!");
+        }
+
+        function TKprice() {
+            
+            var tick = 300;
+            var per = document.getElementById('pop').value
+            var disc = document.getElementById('disc').value;
+            var final = tick - (disc * tick * per);
+            window.alert('Your ticket costs ' + final);
+        }
+
+        function print() {
+            alert("Successfully printed!")
+        }
+    </script>
+
+</body>
+</html>
